@@ -5,6 +5,8 @@ Email: dp3129@columbia.edu
 
 LinkedIn: https://www.linkedin.com/in/ding-pang/
 
+Link to repo: https://github.com/DingPang/Summer-2022-Data-Science-Intern-Challenge
+
 # Question 1
 
 ## Answer
@@ -76,7 +78,6 @@ LinkedIn: https://www.linkedin.com/in/ding-pang/
 * C: What product was ordered the most by customers in Germany?
 
      * Query:
-        This output the full name, but it is short and efficient enough to manually parse the lastname (or code it in python).
         ```
         SELECT max(amount),
         ProductName
