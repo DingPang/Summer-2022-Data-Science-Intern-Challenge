@@ -61,8 +61,9 @@ Link to repo: https://github.com/DingPang/Summer-2022-Data-Science-Intern-Challe
     * Query:
         This output the full name, but it is short and efficient enough to manually parse the lastname (or code it in python).
         ```
-        SELECT max(Number_of_Orders),
-        CustomerName
+        SELECT
+            max(Number_of_Orders),
+            CustomerName
         FROM (
             SELECT
                 COUNT(O.OrderID) AS Number_of_Orders,
@@ -79,11 +80,13 @@ Link to repo: https://github.com/DingPang/Summer-2022-Data-Science-Intern-Challe
 
      * Query:
         ```
-        SELECT max(amount),
-        ProductName
+        SELECT
+            max(amount),
+            ProductName
         FROM (
             SELECT
-                SUM(D.Quantity) AS amount, P.ProductName
+                SUM(D.Quantity) AS amount,
+                P.ProductName
             FROM Customers C
             JOIN ORDERS O
             ON O.CustomerID = C.CustomerID
