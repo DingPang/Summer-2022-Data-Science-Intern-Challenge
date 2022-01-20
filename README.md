@@ -52,29 +52,30 @@ Link to repo: https://github.com/DingPang/Summer-2022-Data-Science-Intern-Challe
         ```
         SELECT
             COUNT(DISTINCT(OrderID)) AS Total_Order_Shipped
-        FROM Orders
-        WHERE ShipperID IS NOT NULL;
+        FROM Orders O
+        JOIN Shippers S
+        ON O.ShipperID = S.ShipperID
+        WHERE S.ShipperName = "Speedy Express";
         ```
-    * Result: 196
+    * Result: 54
 
 * B: What is the last name of the employee with the most orders?
     * Query:
-        This output the full name, but it is short and efficient enough to manually parse the lastname (or code it in python).
         ```
         SELECT
             max(Number_of_Orders),
-            CustomerName
+            LastName
         FROM (
             SELECT
                 COUNT(O.OrderID) AS Number_of_Orders,
-                C.CustomerName
-            FROM Customers C
+                E.LastName
+            FROM Employees E
             JOIN ORDERS O
-            ON O.CustomerID = C.CustomerID
-            GROUP BY C.CustomerID, C.CustomerName
+            ON E.EmployeeID = O.EmployeeID
+            GROUP BY E.EmployeeID, E.LastName
         );
         ```
-    * Result: Handel
+    * Result: Peacock (40)
 
 * C: What product was ordered the most by customers in Germany?
 
@@ -98,7 +99,7 @@ Link to repo: https://github.com/DingPang/Summer-2022-Data-Science-Intern-Challe
             GROUP BY P.ProductName
         );
         ```
-    * Result: Boston Crab Meat
+    * Result: Boston Crab Meat (160)
 
 
 
